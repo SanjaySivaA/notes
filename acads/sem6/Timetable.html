@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Timetable</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="timetable">Timetable</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center">8:00-8:50</th>
+<th style="text-align:center">9:00-9:50</th>
+<th style="text-align:center">10:00-10:50</th>
+<th style="text-align:center">11:00-11:50</th>
+<th style="text-align:center">12:05-12:55</th>
+<th style="text-align:center">Break</th>
+<th style="text-align:center">14:00-16:45</th>
+<th style="text-align:center">17:10-18:00</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Monday</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="dbms">DBMS</span></td>
+<td style="text-align:center"><span class="cd">CD</span></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="cd">CD Lab</span></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Wednesday</td>
+<td style="text-align:center"><span class="cd">CD</span></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Friday</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="dbms">DBMS</span></td>
+<td style="text-align:center"><span class="cd">CD</span></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="dbms">DBMS Lab</span></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center">8:00-8:50</th>
+<th style="text-align:center">9:00-10:15</th>
+<th style="text-align:center">10:30-11:45</th>
+<th style="text-align:center">12:00-12:50</th>
+<th style="text-align:center">Break</th>
+<th style="text-align:center">14:00-15:15</th>
+<th style="text-align:center">15:30-16:45</th>
+<th style="text-align:center">17:10-18:00</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Tuesday</td>
+<td style="text-align:center"><span class="dbms">DBMS</span></td>
+<td style="text-align:center"><span class="nlp">NLP</span></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="mc">MC</span></td>
+<td style="text-align:center"><span class="gtm">GTM</span></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">Thursday</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="nlp">NLP</span></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><span class="gtm">GTM</span></td>
+<td style="text-align:center"><span class="mc">MC</span></td>
+<td style="text-align:center"><span class="mc">MC</span></td>
+</tr>
+</tbody>
+</table>
+<style>
+
+/* Sharp High-Contrast Light Theme */
+:root {
+  --bg-color: #ffffff;
+  --text-main: #000000;
+  --text-muted: #666666;
+  --border-grey: #d3d3d3; /* Darker, crisper grey */
+  --border-radius: 10px;
+  
+  /* Intense Sharp Shadow */
+  --sharp-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05),
+                  0 0 1px 0 rgba(0, 0, 0, 0.3); /* The "edge" shadow */
+  
+  /* Today Highlight */
+  --today-bg: #fffceb;
+  --today-accent:rgb(226, 27, 27);
+
+  /* Subject Palette */
+  --dbms: #0070f3;
+  --cd: #7928ca;
+  --nlp: #d97706;
+  --mc: #059669;
+  --gtm: #db2777;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 50px;
+}
+
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate; 
+  border-spacing: 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--sharp-shadow);
+  border: 1px solid var(--border-grey);
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+th, td {
+  padding: 16px 20px; 
+  font-size: 0.9rem;
+}
+
+th:last-child, td:last-child {
+  border-right: none;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+th {
+  background-color: #f8f8f8;
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+td:first-child {
+  font-weight: 700;
+  background-color: #fcfcfc;
+  width: 120px;
+}
+
+/* Today's Highlight Class */
+.today {
+  background-color: var(--today-bg) !important;
+}
+.today td:first-child {
+  background-color: var(--today-bg) !important;
+  border-left: 5px solid var(--today-accent);
+}
+
+/* Subject Styling */
+span {
+  font-weight: 700;
+}
+
+.dbms { color: var(--dbms); }
+.cd   { color: var(--cd); }
+.nlp  { color: var(--nlp); }
+.mc   { color: var(--mc); }
+.gtm  { color: var(--gtm); }
+
+</style>
+            
+            
+        </body>
+        </html>
